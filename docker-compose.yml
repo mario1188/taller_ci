@@ -17,9 +17,9 @@ services:
       - "80:80"
     restart: always
     volumes: 
-      - "$GITLAB_HOME/config:/etc/gitlab"
-      - "$GITLAB_HOME/logs:/var/log/gitlab"
-      - "$GITLAB_HOME/data:/var/opt/gitlab"
+      - "$PWD/GITLAB_HOME/config:/etc/gitlab"
+      - "$PWD/GITLAB_HOME/logs:/var/log/gitlab"
+      - "$PWD/GITLAB_HOME/data:/var/opt/gitlab"
     image: gitlab/gitlab-ee:latest
     networks: 
       - net
