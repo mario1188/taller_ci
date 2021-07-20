@@ -10,18 +10,17 @@ services:
     networks:
       - net
   git:
-    container_name: git_server
-    hostname: gitlab.example.com 
-    ports: 
+    container_name: git-server
+    hostname: gitlab.example.com
+    ports:
       - "443:443"
       - "80:80"
-    restart: always
-    volumes: 
-      - "$GITLAB_HOME/config:/etc/gitlab"
-      - "$GITLAB_HOME/logs:/var/log/gitlab"
-      - "$GITLAB_HOME/data:/var/opt/gitlab"
-    image: gitlab/gitlab-ee:latest
-    networks: 
+    volumes:
+      - "/srv/gitlab/config:/etc/gitlab"
+      - "/srv/gitlab/logs:/var/log/gitlab"
+      - "/srv/gitlab/data:/var/opt/gitlab"
+    image: gitlab/gitlab-ce
+    networks:
       - net
 networks:
   net: 
